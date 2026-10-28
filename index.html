@@ -212,6 +212,21 @@ footer.site .cta { font-size: 1.15rem; color: var(--gold-300); font-weight: 600;
                     <iframe src="https://www.youtube-nocookie.com/embed/paXMGo8cHSo?rel=0" title="Linda Roszak Burton TEDx talk: Gratitude, The Power to Heal the World" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
                 </div>
             </div>
+            <h3 style="margin:34px 0 14px">More talks and interviews</h3>
+            <div class="vgrid">
+                <a class="vid" href="https://www.youtube.com/watch?v=JEUxIvJvLPg" data-id="JEUxIvJvLPg" target="_blank" rel="noopener">
+                    <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/JEUxIvJvLPg/hqdefault.jpg" alt=""><span class="play">&#9654;</span></div>
+                    <div class="meta"><strong>Discovering the Health and Well-Being Benefits of Gratitude</strong><time>Second Sunday Community Health Series</time></div>
+                </a>
+                <a class="vid" href="https://www.youtube.com/watch?v=OARYtuxgX8k" data-id="OARYtuxgX8k" target="_blank" rel="noopener">
+                    <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/OARYtuxgX8k/hqdefault.jpg" alt=""><span class="play">&#9654;</span></div>
+                    <div class="meta"><strong>Exploring the 5 Facets of Wellbeing: A Journey Towards Personal Growth</strong><time>BFG University</time></div>
+                </a>
+                <a class="vid" href="https://www.youtube.com/watch?v=zMrjTDopss0" data-id="zMrjTDopss0" target="_blank" rel="noopener">
+                    <div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/zMrjTDopss0/hqdefault.jpg" alt=""><span class="play">&#9654;</span></div>
+                    <div class="meta"><strong>360° Health Harnessing the Science of Gratitude</strong><time>It&rsquo;s Your Life Radio</time></div>
+                </a>
+            </div>
         </section>
 
         <section class="block" id="podcast">
@@ -309,7 +324,7 @@ footer.site .cta { font-size: 1.15rem; color: var(--gold-300); font-weight: 600;
 
         fetch('data/feeds.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (d) {
             document.getElementById('episodes').innerHTML = ((d.podcast || {}).episodes || []).map(function (e) {
-                return '<article class="card ep"><h3><a href="' + esc(e.link) + '" target="_blank" rel="noopener">' + esc(e.display) + '</a></h3></article>';
+                return '<article class="card ep"><h3><a href="' + esc(e.link) + '" target="_blank" rel="noopener">' + esc(e.display) + '</a></h3>' + (e.source ? '<div class="when" style="margin:4px 0 0">' + esc(e.source) + '</div>' : '') + '</article>';
             }).join('');
         }).catch(function () {
             document.getElementById('episodes').innerHTML = '';

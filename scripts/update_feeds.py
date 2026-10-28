@@ -26,6 +26,19 @@ PICKED_EPISODES = [
         "Post-Traumatic Growth"
     ]
 ]
+# Interviews on other shows, from Linda's own list (no feed to read). Shown after the picks.
+EXTRA_EPISODES = [
+    {
+        "display": "Healing Through the Power of Gratitude",
+        "source": "An Unexpected Life, Claire Marie Foundation",
+        "link": "https://podcasts.apple.com/us/podcast/healing-through-the-power-of-gratitude-guest/id1805668642?i=1000718747200",
+    },
+    {
+        "display": "The Power of Gratitude in Healthcare",
+        "source": "Sound Practice",
+        "link": "https://www.soundpractice.com/e/the-power-of-gratitude-in-healthcare-with-linda-roszak-burton",
+    },
+]
 OUT = Path(__file__).resolve().parent.parent / "data" / "feeds.json"
 
 
@@ -44,7 +57,7 @@ def podcast():
     return {"episodes": [
         {"title": t, "display": shown, "link": items[t].findtext("link")}
         for t, shown in PICKED_EPISODES
-    ]}
+    ] + EXTRA_EPISODES}
 
 
 def main():
